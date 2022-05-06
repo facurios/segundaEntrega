@@ -2,9 +2,9 @@
     "name": "afterclass-backend-servidor-mongodb",
     "version": "1.0.0",
     "description": "ejemplo-backend-crud",
-    "main": "./src/server.js",
+    "main": "./src/main.js",
     "scripts": {
-        "start": "node ./src/server.js",
+        "start": "node ./src/main.js",
         "dev": "nodemon .",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

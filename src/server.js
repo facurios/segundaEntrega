@@ -25,18 +25,4 @@ server.on('error', error => {
     console.log('error on the server:', error);
 });
 
-// graceful shutdown
-function gracefulShutdown() {
-    try {
-
-    } catch (error) {
-        console.error('There was an error shutting down the server, ' + error);
-    } finally {
-        console.info('Thanks for using this server, goodbye :)');
-    }
-}
-process.on('exit', gracefulShutdown);
-process.on('SIGTERM', gracefulShutdown);
-process.on('SIGKILL', gracefulShutdown);
-process.on('SIGINT', gracefulShutdown);
-process.on('uncaughtException', gracefulShutdown);
+module.exports = server;
