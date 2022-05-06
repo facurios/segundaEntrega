@@ -22,7 +22,7 @@ const server = app.listen(config.port, () => {
 
 // en caso de error, avisar
 server.on('error', error => {
-    console.log('error on the server:', error);
+    console.error('error on the server:', error);
 });
 
 module.exports = server;

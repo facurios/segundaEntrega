@@ -1,15 +1,19 @@
 const config = require('../../config.json');
-const daoProductosMongoDB = require('./productos/ProductosDaoMongoDB');
 
 let daoProductos;
+let daoCarritos;
 switch (config.database.engine) {
     case 'mongodb':
-        daoProductos = daoProductosMongoDB;
+        daoProductos = require('./productos/ProductosDaoMongoDB');
         break;
+        // case 'sqlLite3':
+        //     daoProductos = require('./productos/ProductosDaoSqlLite3');
+        //     break;
     default:
-        daoProductos = daoProductosMongoDB;
+        daoProductos = require('./productos/ProductosDaoMongoDB');
 }
 
 module.exports = {
     daoProductos,
+    daoCarritos
 }
