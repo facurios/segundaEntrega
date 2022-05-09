@@ -4,6 +4,7 @@ const daoProductos = require('../daos/index').daoProductos;
 
 router.get('/productos', async(req, res) => {
     try {
+        
         let resultado = await daoProductos.findAll();
         return res.json(resultado);
     } catch (error) {
@@ -13,7 +14,7 @@ router.get('/productos', async(req, res) => {
 
 router.get('/productos/:id', async(req, res) => {
     try {
-        let resultado = await daoProductos.findById(req.params.id);
+        let resultado = await daoProductos.findAll(req.params.id);
         return res.json(resultado);
     } catch (error) {
         return res.status(500).send({ error: error.message });
@@ -22,7 +23,7 @@ router.get('/productos/:id', async(req, res) => {
 
 router.post('/productos', async(req, res) => {
     try {
-        let resultado = await daoProductos.create(req.body);
+        let resultado = await daoProductos.createProduct(req.body);
         return res.json(resultado);
     } catch (error) {
         return res.status(500).send({ error: error.message });
@@ -31,7 +32,7 @@ router.post('/productos', async(req, res) => {
 
 router.put('/productos/:id', async(req, res) => {
     try {
-        let resultado = await daoProductos.update(req.params.id, req.body);
+        let resultado = await daoProductos.updateProduct(req.params.id, req.body);
         return res.json(resultado);
     } catch (error) {
         return res.status(500).send({ error: error.message });
@@ -40,7 +41,7 @@ router.put('/productos/:id', async(req, res) => {
 
 router.delete('/productos/:id', async(req, res) => {
     try {
-        let result = await daoProductos.delete(req.params.id);
+        let result = await daoProductos.deleteProduct(req.params.id);
         return res.json(result);
     } catch (error) {
         return res.status(500).send({ error: error.message });

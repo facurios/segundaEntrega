@@ -1,4 +1,4 @@
-const config = require('../../../config.json');
+// const config = require('../../../config.json');
 const ContenedorMongoDB = require('../../contenedores/contenedorMongoDb');
 
 class CarritosDaoMongoDB extends ContenedorMongoDB {

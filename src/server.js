@@ -1,7 +1,8 @@
-const config = require('../config.json');
+const config = require('../config.js');
 const express = require('express');
 const app = express();
 const routerProductos = require('./rutas/router_productos');
+const routerCarritos = require('./rutas/router_carrito');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -14,6 +15,7 @@ app.use((err, req, res, next) => {
 
 // rutas
 app.use('/api', routerProductos);
+app.use('/api', routerCarritos);
 
 // pongo a escuchar el servidor en el puerto indicado
 const server = app.listen(config.port, () => {

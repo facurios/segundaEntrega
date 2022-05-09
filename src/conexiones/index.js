@@ -1,4 +1,4 @@
-const config = require('../../config.json');
+const config = require('../../config.js');
 
 let cliente;
 (async function() {
@@ -7,12 +7,12 @@ let cliente;
             cliente = require('./clienteMongoDB');
             await cliente.connect();
             break;
-            // case 'sqllite3':
-            //     cliente = require('./clienteSQLLite3');
-            //     await cliente.connect();
-            //     break;
+        case 'fileSystem,':
+            cliente = require('./fileSystem');
+            
+            break;
         default:
-            cliente = clienteMongoDB;
+            //cliente = clienteMongoDB;
     }
 })();
 
